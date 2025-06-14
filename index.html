@@ -7,144 +7,146 @@
   <meta name="Generator" content="Cocoa HTML Writer">
   <meta name="CocoaVersion" content="2575.3">
   <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none}
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="tr"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Email Gönderici&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="https://cdn.tiny.cloud/1/clrtd37fbqf3gbvo77dckr6vuq8ybabs0fwtzykzh9q01mzu/tinymce/6/tinymce.min.js" referrerpolicy="origin"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body { font-family: sans-serif; padding: 20px; max-width: 1000px; margin: auto; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.container { display: flex; gap: 20px; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.templates { width: 200px; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.editor { flex: 1; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>button { margin: 5px 0; padding: 6px 10px; cursor: pointer; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;h2&gt;Email Gönder&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="templates"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;strong&gt;Hazır Şablonlar&lt;/strong&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button onclick="loadTemplate('pension')"&gt;BES Güncelleme&lt;/button&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button onclick="loadTemplate('birthday')"&gt;Doğum Günü&lt;/button&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button onclick="loadTemplate('appointment')"&gt;Randevu Hatırlatma&lt;/button&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="editor"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;label&gt;Alıcı Seç:&lt;/label&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;select id="clientSelect" onchange="updateVariables()" style="width:100%; padding:8px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="" disabled selected&gt;Yükleniyor...&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/select&gt;&lt;br&gt;&lt;br&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;label&gt;Konu:&lt;/label&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;input type="text" id="subject" placeholder="Konu girin" style="width:100%; padding:8px;"&gt;&lt;br&gt;&lt;br&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;label&gt;Gönderim Tarihi (isteğe bağlı):&lt;/label&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;input type="datetime-local" id="scheduleDate" style="width:100%; padding:8px;"&gt;&lt;br&gt;&lt;br&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;label&gt;Değişken Ekle:&lt;/label&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button onclick="insertVariable('{{Ad Soyad}}')"&gt;Ad Soyad&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button onclick="insertVariable('{{Geçen Ay Birikim}}')"&gt;Geçen Ay Birikim&lt;/button&gt;&lt;br&gt;&lt;br&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;textarea id="emailBody"&gt;Sayın {{Ad Soyad}},&lt;br&gt;&lt;br&gt;Geçen ayki birikiminiz: {{Geçen Ay Birikim}} ₺&lt;/textarea&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button onclick="sendEmail(false)" style="background-color:#28a745; color:white;"&gt;Gönder&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button onclick="sendEmail(true)" style="background-color:#6c757d; color:white; margin-left:10px;"&gt;Planla&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>tinymce.init({</p>
-<p class="p1"><span class="Apple-converted-space">      </span>selector: '#emailBody',</p>
-<p class="p1"><span class="Apple-converted-space">      </span>plugins: 'link lists code',</p>
-<p class="p1"><span class="Apple-converted-space">      </span>toolbar: 'undo redo | bold italic underline | bullist numlist | link | code',</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 300</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>function insertVariable(variable) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>tinymce.activeEditor.execCommand('mceInsertContent', false, variable);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>function loadTemplate(type) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const templates = {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>pension: "Sayın {{Ad Soyad}},&lt;br&gt;&lt;br&gt;Bu ayki BES birikiminiz: {{Geçen Ay Birikim}} ₺",</p>
-<p class="p1"><span class="Apple-converted-space">        </span>birthday: "Sayın {{Ad Soyad}},&lt;br&gt;&lt;br&gt;Doğum gününüz kutlu olsun! Sağlıklı ve mutlu bir yıl dileriz.",</p>
-<p class="p1"><span class="Apple-converted-space">        </span>appointment: "Sayın {{Ad Soyad}},&lt;br&gt;&lt;br&gt;Yarın saat 14:00’teki randevunuzu hatırlatmak isteriz."</p>
-<p class="p1"><span class="Apple-converted-space">      </span>};</p>
-<p class="p1"><span class="Apple-converted-space">      </span>tinymce.get("emailBody").setContent(templates[type]);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>function updateVariables() {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const selected = document.getElementById('clientSelect').value;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>if (!selected) return;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const data = JSON.parse(selected);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const editor = tinymce.get("emailBody");</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const content = editor.getContent()</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.replaceAll('{{Ad Soyad}}', data.name)</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.replaceAll('{{Geçen Ay Birikim}}', data.birikim);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>editor.setContent(content);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('recipients').value = data.email;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>function sendEmail(scheduled) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const subject = document.getElementById('subject').value;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const body = tinymce.get('emailBody').getContent();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const scheduleDate = document.getElementById('scheduleDate').value;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const email = document.getElementById('recipients').value;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const payload = {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>recipients: [email],</p>
-<p class="p1"><span class="Apple-converted-space">        </span>subject: subject,</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body: body,</p>
-<p class="p1"><span class="Apple-converted-space">        </span>scheduled: scheduled,</p>
-<p class="p1"><span class="Apple-converted-space">        </span>scheduleDate: scheduleDate || null</p>
-<p class="p1"><span class="Apple-converted-space">      </span>};</p>
-<p class="p1"><span class="Apple-converted-space">      </span>fetch('https://hook.make.com/your-make-webhook-url', {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>method: 'POST',</p>
-<p class="p1"><span class="Apple-converted-space">        </span>headers: { 'Content-Type': 'application/json' },</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body: JSON.stringify(payload)</p>
-<p class="p1"><span class="Apple-converted-space">      </span>})</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.then(() =&gt; alert(scheduled ? 'Email planlandı.' : 'Email gönderildi.'))</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.catch(() =&gt; alert('Gönderim sırasında hata oluştu.'));</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>const airtableApiKey = "patNa8s4uVzAjiq3.d90554687ce46d3095efc20a4b60c70df8a1c4c208118290f6dcb1dc8ebd0cc7";</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const airtableBaseId = "appUfG1Pxoc8icljw";</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const tableName = "Müşteri Listesi";</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>async function fetchClientsFromAirtable() {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const url = `https://api.airtable.com/v0/${airtableBaseId}/${encodeURIComponent(tableName)}?view=Grid%20view`;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const res = await fetch(url, {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>headers: { Authorization: `Bearer ${airtableApiKey}` }</p>
-<p class="p1"><span class="Apple-converted-space">      </span>});</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const data = await res.json();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const select = document.getElementById("clientSelect");</p>
-<p class="p1"><span class="Apple-converted-space">      </span>select.innerHTML = '&lt;option value="" disabled selected&gt;Seçiniz&lt;/option&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">      </span>data.records.forEach(record =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const name = record.fields["Ad Soyad"];</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const email = record.fields["E-posta"];</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const birikim = record.fields["Geçen Ay Birikim"];</p>
-<p class="p1"><span class="Apple-converted-space">        </span>if (name &amp;&amp; email) {</p>
-<p class="p1"><span class="Apple-converted-space">          </span>const option = document.createElement("option");</p>
-<p class="p1"><span class="Apple-converted-space">          </span>option.value = JSON.stringify({ name, email, birikim });</p>
-<p class="p1"><span class="Apple-converted-space">          </span>option.textContent = name;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>select.appendChild(option);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>});</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>fetchClientsFromAirtable();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;input type="hidden" id="recipients"&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="tr"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;Email Gönderici&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script src="https://cdn.tiny.cloud/1/clrtd37fbqf3gbvo77dckr6vuq8ybabs0fwtzykzh9q01mzu/tinymce/6/tinymce.min.js" referrerpolicy="origin"&gt;&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>body { font-family: sans-serif; padding: 20px; max-width: 1000px; margin: auto; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.container { display: flex; gap: 20px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.templates { width: 200px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.editor { flex: 1; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>button { margin: 5px 0; padding: 6px 10px; cursor: pointer; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;h2&gt;Email Gönder&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="templates"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;strong&gt;Hazır Şablonlar&lt;/strong&gt;&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button onclick="loadTemplate('pension')"&gt;BES Güncelleme&lt;/button&gt;&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button onclick="loadTemplate('birthday')"&gt;Doğum Günü&lt;/button&gt;&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button onclick="loadTemplate('appointment')"&gt;Randevu Hatırlatma&lt;/button&gt;&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="editor"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;label&gt;Alıcı Seç:&lt;/label&gt;&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;select id="clientSelect" onchange="updateVariables()" style="width:100%; padding:8px;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;option value="" disabled selected&gt;Yükleniyor...&lt;/option&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/select&gt;&lt;br&gt;&lt;br&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;label&gt;Konu:&lt;/label&gt;&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;input type="text" id="subject" placeholder="Konu girin" style="width:100%; padding:8px;"&gt;&lt;br&gt;&lt;br&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;label&gt;Gönderim Tarihi (isteğe bağlı):&lt;/label&gt;&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;input type="datetime-local" id="scheduleDate" style="width:100%; padding:8px;"&gt;&lt;br&gt;&lt;br&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;label&gt;Değişken Ekle:&lt;/label&gt;&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button onclick="insertVariable('{{Ad Soyad}}')"&gt;Ad Soyad&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button onclick="insertVariable('{{Geçen Ay Birikim}}')"&gt;Geçen Ay Birikim&lt;/button&gt;&lt;br&gt;&lt;br&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;textarea id="emailBody"&gt;Sayın {{Ad Soyad}},&lt;br&gt;&lt;br&gt;Geçen ayki birikiminiz: {{Geçen Ay Birikim}} ₺&lt;/textarea&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button onclick="sendEmail(false)" style="background-color:#28a745; color:white;"&gt;Gönder&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button onclick="sendEmail(true)" style="background-color:#6c757d; color:white; margin-left:10px;"&gt;Planla&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>tinymce.init({</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>selector: '#emailBody',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>plugins: 'link lists code',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>toolbar: 'undo redo | bold italic underline | bullist numlist | link | code',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>height: 300</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function insertVariable(variable) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>tinymce.activeEditor.execCommand('mceInsertContent', false, variable);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function loadTemplate(type) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const templates = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>pension: "Sayın {{Ad Soyad}},&lt;br&gt;&lt;br&gt;Bu ayki BES birikiminiz: {{Geçen Ay Birikim}} ₺",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>birthday: "Sayın {{Ad Soyad}},&lt;br&gt;&lt;br&gt;Doğum gününüz kutlu olsun! Sağlıklı ve mutlu bir yıl dileriz.",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>appointment: "Sayın {{Ad Soyad}},&lt;br&gt;&lt;br&gt;Yarın saat 14:00’teki randevunuzu hatırlatmak isteriz."</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>tinymce.get("emailBody").setContent(templates[type]);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function updateVariables() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const selected = document.getElementById('clientSelect').value;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (!selected) return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const data = JSON.parse(selected);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const editor = tinymce.get("emailBody");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const content = editor.getContent()</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.replaceAll('{{Ad Soyad}}', data.name)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.replaceAll('{{Geçen Ay Birikim}}', data.birikim);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>editor.setContent(content);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>document.getElementById('recipients').value = data.email;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function sendEmail(scheduled) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const subject = document.getElementById('subject').value;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const body = tinymce.get('emailBody').getContent();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const scheduleDate = document.getElementById('scheduleDate').value;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const email = document.getElementById('recipients').value;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const payload = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>recipients: [email],</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>subject: subject,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body: body,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>scheduled: scheduled,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>scheduleDate: scheduleDate || null</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>fetch('https://hook.make.com/your-make-webhook-url', {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>method: 'POST',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>headers: { 'Content-Type': 'application/json' },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body: JSON.stringify(payload)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>})</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.then(() =&gt; alert(scheduled ? 'Email planlandı.' : 'Email gönderildi.'))</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.catch(() =&gt; alert('Gönderim sırasında hata oluştu.'));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const airtableApiKey = "patNa8s4uVzAjiq3.d90554687ce46d3095efc20a4b60c70df8a1c4c208118290f6dcb1dc8ebd0cc7";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const airtableBaseId = "appUfG1Pxoc8icljw";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const tableName = "Müşteri Listesi";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>async function fetchClientsFromAirtable() {</span></p>
+<p class="p1"><span class="s1">const url = "https://email-editor-netlify.netlify.app/.netlify/functions/airtable-proxy";</span></p>
+<p class="p1"><span class="s1">view=Grid%20view`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const res = await fetch(url, {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>headers: { Authorization: `Bearer ${airtableApiKey}` }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const data = await res.json();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const select = document.getElementById("clientSelect");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>select.innerHTML = '&lt;option value="" disabled selected&gt;Seçiniz&lt;/option&gt;';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>data.records.forEach(record =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const name = record.fields["Ad Soyad"];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const email = record.fields["E-posta"];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const birikim = record.fields["Geçen Ay Birikim"];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (name &amp;&amp; email) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>const option = document.createElement("option");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>option.value = JSON.stringify({ name, email, birikim });</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>option.textContent = name;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>select.appendChild(option);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>fetchClientsFromAirtable();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;input type="hidden" id="recipients"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
 </body>
 </html>
