@@ -107,7 +107,7 @@
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>scheduled: scheduled,</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>scheduleDate: scheduleDate || null</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>};</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>fetch('https://email-editor-netlify.netlify.app/.netlify/functions/airtable-proxy', {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>fetch('<a href="https://clinquant-horse-5671bc.netlify.app/">https://clinquant-horse-5671bc.netlify.app</a>/.netlify/functions/airtable-proxy', {</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>method: 'POST',</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>headers: { 'Content-Type': 'application/json' },</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body: JSON.stringify(payload)</span></p>
@@ -117,7 +117,7 @@
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
 <p class="p2"><span class="s1"></span><br></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>async function fetchClientsFromAirtable() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const url = "https://email-editor-netlify.netlify.app/.netlify/functions/airtable-proxy";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const url = "<a href="https://clinquant-horse-5671bc.netlify.app/">https://clinquant-horse-5671bc.netlify.app</a>/.netlify/functions/airtable-proxy";</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const res = await fetch(url);</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const data = await res.json();</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const select = document.getElementById("clientSelect");</span></p>
