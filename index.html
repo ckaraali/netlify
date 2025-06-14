@@ -107,7 +107,7 @@
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>scheduled: scheduled,</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>scheduleDate: scheduleDate || null</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>};</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>fetch('https://hook.make.com/your-make-webhook-url', {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>fetch('https://email-editor-netlify.netlify.app/.netlify/functions/airtable-proxy', {</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>method: 'POST',</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>headers: { 'Content-Type': 'application/json' },</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body: JSON.stringify(payload)</span></p>
@@ -116,16 +116,9 @@
 <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.catch(() =&gt; alert('Gönderim sırasında hata oluştu.'));</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
 <p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const airtableApiKey = "patNa8s4uVzAjiq3.d90554687ce46d3095efc20a4b60c70df8a1c4c208118290f6dcb1dc8ebd0cc7";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const airtableBaseId = "appUfG1Pxoc8icljw";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const tableName = "Müşteri Listesi";</span></p>
-<p class="p2"><span class="s1"></span><br></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>async function fetchClientsFromAirtable() {</span></p>
-<p class="p1"><span class="s1">const url = "https://email-editor-netlify.netlify.app/.netlify/functions/airtable-proxy";</span></p>
-<p class="p1"><span class="s1">view=Grid%20view`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const res = await fetch(url, {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>headers: { Authorization: `Bearer ${airtableApiKey}` }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const url = "https://email-editor-netlify.netlify.app/.netlify/functions/airtable-proxy";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const res = await fetch(url);</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const data = await res.json();</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const select = document.getElementById("clientSelect");</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>select.innerHTML = '&lt;option value="" disabled selected&gt;Seçiniz&lt;/option&gt;';</span></p>
